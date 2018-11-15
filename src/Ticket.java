@@ -1,4 +1,3 @@
-
 /**
  * James Adams, Davian Glenn
  * November 7, 2018
@@ -8,25 +7,43 @@
 
 public class Ticket {
 
-    private String name, startingCity, destinationCity;
-    private int flightNumber, departureDate, departureTime;
+    private String name;
+    private char flightClass;
+    private int seat, price;
 
-    public Ticket() {
-        name = "";
-        startingCity = "";
-        destinationCity = "";
-        flightNumber = 0;
-        departureDate = 0;
-        departureTime = 0;
+    public Ticket(String name, char flightClass) {
+        this.name = name;
+        this.flightClass = flightClass;
     }
 
-    public Ticket(String name, String startingCity, String destinationCity, int flightNumber, int departureDate, int departureTime) {
-        this.name = name;
-        this.startingCity = startingCity;
-        this.destinationCity = destinationCity;
-        this.flightNumber = flightNumber;
-        this.departureDate = departureDate;
-        this.departureTime = departureTime;
+    public int Price(){
+        switch(this.flightClass){
+            case 'E':
+                price = 300;
+                break;
+            case 'B':
+                price = 450;
+                break;
+            case 'F':
+                price = 900;
+                break;
+        }
+        return price;
+    }
+
+    public int Seat(){
+        switch(this.flightClass){
+            case 'E':
+                seat = 15;
+                break;
+            case 'B':
+                seat = 10;
+                break;
+            case 'F':
+                seat = 5;
+                break;
+        }
+        return seat;
     }
 
     public String getName() {
@@ -37,43 +54,11 @@ public class Ticket {
         this.name = name;
     }
 
-    public String getStartingCity() {
-        return startingCity;
+    public char getFlightClass() {
+        return flightClass;
     }
 
-    public void setStartingCity(String startingCity) {
-        this.startingCity = startingCity;
-    }
-
-    public String getDestinationCity() {
-        return destinationCity;
-    }
-
-    public void setDestinationCity(String destinationCity) {
-        this.destinationCity = destinationCity;
-    }
-
-    public int getFlightNumber() {
-        return flightNumber;
-    }
-
-    public void setFlightNumber(int flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    public int getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(int departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public int getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(int departureTime) {
-        this.departureTime = departureTime;
+    public void setFlightClass(char flightClass) {
+        this.flightClass = flightClass;
     }
 }
