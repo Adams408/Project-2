@@ -20,6 +20,8 @@ public class Economy {
 
     private double price = 300;
 
+    private String seat;
+
     public Economy(String name, String startingCity, String destinationCity, int flightNumber, String departureDate, String departureTime) {
         this.name = name;
         this.startingCity = startingCity;
@@ -36,41 +38,17 @@ public class Economy {
     }
 
     public void Display() { // displays the information of the reserved ticket
-        System.out.println("Name: " + name + " | Date: " + departureDate + " | Flight Number: " + flightNumber + " | Price: $" + price);
+        System.out.println("Name: " + name + " | Date: " + departureDate + " | Flight Number: " + flightNumber + " | Price: $" + price + " | Seat Type: " + seat);
     }
 
-    public String seatType(String seat) { // get the seat choice
+    public void seatType() { // get the seat choice
         if (seat.equalsIgnoreCase("window"))
-            return "Window Seat";
+            this.seat = "Window Seat";
         else
-            return "Aisle Seat";
+            this.seat = "Aisle Seat";
     }
 
     // GETTER AND SETTER
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStartingCity() {
-        return startingCity;
-    }
-
-    public void setStartingCity(String startingCity) {
-        this.startingCity = startingCity;
-    }
-
-    public String getDestinationCity() {
-        return destinationCity;
-    }
-
-    public void setDestinationCity(String destinationCity) {
-        this.destinationCity = destinationCity;
-    }
 
     public int getFlightNumber() {
         return flightNumber;
@@ -78,22 +56,6 @@ public class Economy {
 
     public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
-    }
-
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
     }
 
     public double getPrice() {

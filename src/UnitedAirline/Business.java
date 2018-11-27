@@ -11,22 +11,25 @@ public class Business extends Economy {
 
     // VARIABLES
 
-    private double price = getPrice() + (getPrice() * .50);
+    private double price;
+
+    private String snack;
 
     public Business(String name, String startingCity, String destinationCity, int flightNumber, String departureDate, String departureTime) {
         super(name, startingCity, destinationCity, flightNumber, departureDate, departureTime);
+        this.price = getPrice() + (getPrice() * .50);
     }
 
     @Override
     public void Display() {
         super.Display();
-        System.out.println(" | Snack: $" + price);
+        System.out.println(" | Snack: " + snack);
     }
 
-    public String snackType(String snack) {  // get the snack choice
+    public void snackType() {  // get the snack choice
         if (snack.equalsIgnoreCase("cookies"))
-            return "Cookies";
+            this.snack = "Cookies";
         else
-            return "Peanuts";
+            this.snack = "Peanuts";
     }
 }
