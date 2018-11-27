@@ -18,11 +18,7 @@ public class Economy {
     private String departureDate;
     private String departureTime;
 
-    private int numOfSeats;
-
     private double price = 300;
-
-    private String seat;
 
     public Economy(String name, String startingCity, String destinationCity, int flightNumber, String departureDate, String departureTime) {
         this.name = name;
@@ -33,23 +29,21 @@ public class Economy {
         this.departureTime = departureTime;
     }
 
-    public String reserveUnitedTicket() {
-//        tickets[seat] = new Business(this.name, this.startingCity, this.destinationCity, this.flightNumber, this.departureDate, this.departureTime, seat);
-
-
-
-        return "";
+    public String reserveUnitedTicket(int seat) {
+        return "\nConfirmation for: " + name + " \nFor flight " + flightNumber +
+                "\nLeaving at " + departureTime + " from " + startingCity + " to " + destinationCity + " on " + departureDate +
+                "\nSeat Number: " + seat;
     }
 
     public void Display() { // displays the information of the reserved ticket
         System.out.println("Name: " + name + " | Date: " + departureDate + " | Flight Number: " + flightNumber + " | Price: $" + price);
     }
 
-    public void seatType(String seat) { // get the seat choice
+    public String seatType(String seat) { // get the seat choice
         if (seat.equalsIgnoreCase("window"))
-            this.seat = "Window Seat";
-        else if (seat.equalsIgnoreCase("aisle"))
-            this.seat = "Aisle Seat";
+            return "Window Seat";
+        else
+            return "Aisle Seat";
     }
 
     // GETTER AND SETTER
@@ -102,11 +96,11 @@ public class Economy {
         this.departureTime = departureTime;
     }
 
-    public String getSeat() {
-        return seat;
+    public double getPrice() {
+        return price;
     }
 
-    public void setSeat(String seat) {
-        this.seat = seat;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
