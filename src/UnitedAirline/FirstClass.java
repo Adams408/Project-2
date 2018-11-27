@@ -7,11 +7,13 @@ package UnitedAirline;
  * UnitedAirline.FirstClass.java
  */
 
-public class FirstClass extends Economy {
+public class FirstClass extends Business {
 
     // VARIABLES
 
     private double price = (getPrice() + (getPrice() * .50)) * 2;
+
+    private boolean tsxi;
 
     public FirstClass(String name, String startingCity, String destinationCity, int flightNumber, String departureDate, String departureTime) {
         super(name, startingCity, destinationCity, flightNumber, departureDate, departureTime);
@@ -19,17 +21,11 @@ public class FirstClass extends Economy {
 
     @Override
     public void Display() { // displays the information of the reserved ticket
-        System.out.println("Name: " + getName() + " | Date: " + getDepartureDate() + " | Flight Number: " + getFlightNumber() + " | Price: $" + price);
+        super.Display();
+        System.out.println("Taxi: Yes");
     }
 
-    public String snackType(String snack) {  // get the snack choice
-        if (snack.equalsIgnoreCase("cookies"))
-            return "Cookies";
-        else
-            return "Peanuts";
-    }
-
-    public boolean freeTaxi(boolean taxi) {
-       return taxi;
+    public void freeTaxi(boolean taxi) {
+       this.tsxi = taxi;
     }
 }

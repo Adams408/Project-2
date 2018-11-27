@@ -19,7 +19,8 @@ public class Business extends Economy {
 
     @Override
     public void Display() {
-        System.out.println("Name: " + getName() + " | Date: " + getDepartureDate() + " | Flight Number: " + getFlightNumber() + " | Price: $" + price);
+        super.Display();
+        System.out.println(" | Snack: $" + price);
     }
 
     public String snackType(String snack) {  // get the snack choice
